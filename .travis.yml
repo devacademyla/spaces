@@ -1,0 +1,19 @@
+language: ruby
+rvm:
+  - 2.4.0
+
+sudo: false
+dist: trusty
+addons:
+  code_climate:
+    repo_token: $CC_TOKEN
+before_script:
+  - bundle exec rake db:create RAILS_ENV=test
+  - gem install bundler
+
+script:
+  - bundle exec rubocop
+  - bundle exec rspec
+
+after_success:
+  - bundle exec codeclimate-test-reporter
