@@ -1,0 +1,15 @@
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+    - '**/Gemfile'
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'vendor/**/*'
+    - '**/Guardfile'
+Rails:
+  Enabled: true
+Metrics/LineLength:
+  Max: 120
