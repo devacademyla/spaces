@@ -13,6 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
   gem 'rspec-rails'
   gem 'rubocop', require: false
 end
