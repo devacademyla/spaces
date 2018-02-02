@@ -1,4 +1,7 @@
 # Spaces
+[![Build Status](https://www.travis-ci.org/devacademyla/spaces.svg?branch=master)](https://www.travis-ci.org/devacademyla/spaces)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6e43732640f3e8bcbf83/maintainability)](https://codeclimate.com/github/devacademyla/spaces/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/6e43732640f3e8bcbf83/test_coverage)](https://codeclimate.com/github/devacademyla/spaces/test_coverage)
 
 ## Getting started
 
