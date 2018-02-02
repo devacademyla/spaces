@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it 'is valid with a firstname, lastname, email, role and dni ' do
+  it 'is valid with a first name, last name, email, role and dni' do
     organization = build(:organization)
     user = build(:user, organization: organization)
     expect(user).to be_valid
