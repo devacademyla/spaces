@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180202203958) do
+ActiveRecord::Schema.define(version: 20180202210909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,18 @@ ActiveRecord::Schema.define(version: 20180202203958) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "spaces", force: :cascade do |t|
+    t.integer "code"
+    t.string "name"
+    t.string "category"
+    t.integer "capacity"
+    t.float "area"
+    t.bigint "space_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["space_id"], name: "index_spaces_on_space_id"
+  end
+
   create_table "suppliers", force: :cascade do |t|
     t.string "name"
     t.integer "phone"
@@ -97,5 +109,6 @@ ActiveRecord::Schema.define(version: 20180202203958) do
   add_foreign_key "asset_suppliers", "suppliers"
   add_foreign_key "maintenances", "assets"
   add_foreign_key "maintenances", "suppliers"
+  add_foreign_key "spaces", "spaces"
   add_foreign_key "users", "organizations"
 end
