@@ -5,4 +5,5 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :role, presence: true
   validates :dni, presence: true, uniqueness: true
+  belongs_to :organization
 end
