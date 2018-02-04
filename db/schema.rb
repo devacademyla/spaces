@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204211456) do
+ActiveRecord::Schema.define(version: 20180204215107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assets", force: :cascade do |t|
+    t.string "name"
+    t.string "brand"
+    t.string "model"
+    t.string "color"
+    t.string "category"
+    t.string "sub_category"
+    t.integer "status"
+    t.string "description"
+    t.integer "interval"
+    t.bigint "space_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["space_id"], name: "index_assets_on_space_id"
+  end
 
   create_table "organizations", force: :cascade do |t|
     t.string "name"
@@ -65,6 +81,7 @@ ActiveRecord::Schema.define(version: 20180204211456) do
     t.index ["organization_id"], name: "index_users_on_organization_id"
   end
 
+  add_foreign_key "assets", "spaces"
   add_foreign_key "spaces", "spaces"
   add_foreign_key "user_spaces", "spaces"
   add_foreign_key "user_spaces", "users"
