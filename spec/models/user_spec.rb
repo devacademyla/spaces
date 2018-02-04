@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it 'is valid with a firstname, lastname, email, mobilephone, birthday, role, user_identifier and address' do
-    user = build(:user)
+  it 'is valid with a firstname, lastname, email, role and user_identifier' do
+    organization = build(:organization)
+    user = build(:user, organization: organization)
     expect(user).to be_valid
   end
 
@@ -12,4 +13,5 @@ RSpec.describe User, type: :model do
   it { should validate_presence_of(:role) }
   it { should validate_presence_of(:user_identifier) }
   it { should validate_uniqueness_of(:user_identifier) }
+  it { should belong_to(:organization) }
 end
