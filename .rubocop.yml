@@ -13,3 +13,5 @@ Rails:
   Enabled: true
 Metrics/LineLength:
   Max: 120
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
