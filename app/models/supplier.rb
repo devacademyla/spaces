@@ -4,4 +4,5 @@ class Supplier < ApplicationRecord
   validates :supplier_identity, presence: true, uniqueness: true
   validates :services, presence: true
   validates :category, presence: true
+  has_many :asset_suppliers
 end
