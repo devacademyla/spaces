@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204230315) do
+ActiveRecord::Schema.define(version: 20180204232203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 20180204230315) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["space_id"], name: "index_assets_on_space_id"
+  end
+
+  create_table "maintenances", force: :cascade do |t|
+    t.date "registration_date"
+    t.boolean "status"
+    t.bigint "supplier_id"
+    t.bigint "asset_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["asset_id"], name: "index_maintenances_on_asset_id"
+    t.index ["supplier_id"], name: "index_maintenances_on_supplier_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -110,6 +121,8 @@ ActiveRecord::Schema.define(version: 20180204230315) do
   add_foreign_key "asset_suppliers", "assets"
   add_foreign_key "asset_suppliers", "suppliers"
   add_foreign_key "assets", "spaces"
+  add_foreign_key "maintenances", "assets"
+  add_foreign_key "maintenances", "suppliers"
   add_foreign_key "spaces", "spaces"
   add_foreign_key "user_spaces", "spaces"
   add_foreign_key "user_spaces", "users"

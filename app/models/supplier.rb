@@ -5,4 +5,5 @@ class Supplier < ApplicationRecord
   validates :services, presence: true
   validates :category, presence: true
   has_many :asset_suppliers
+  has_many :maintenances
 end
