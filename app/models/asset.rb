@@ -5,4 +5,5 @@ class Asset < ApplicationRecord
   validates :sub_category, presence: true
   validates :status, presence: true
   belongs_to :space
+  has_many :asset_suppliers
 end

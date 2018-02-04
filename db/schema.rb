@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204222234) do
+ActiveRecord::Schema.define(version: 20180204230315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "asset_suppliers", force: :cascade do |t|
+    t.bigint "asset_id"
+    t.bigint "supplier_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["asset_id"], name: "index_asset_suppliers_on_asset_id"
+    t.index ["supplier_id"], name: "index_asset_suppliers_on_supplier_id"
+  end
 
   create_table "assets", force: :cascade do |t|
     t.string "name"
@@ -98,6 +107,8 @@ ActiveRecord::Schema.define(version: 20180204222234) do
     t.index ["organization_id"], name: "index_users_on_organization_id"
   end
 
+  add_foreign_key "asset_suppliers", "assets"
+  add_foreign_key "asset_suppliers", "suppliers"
   add_foreign_key "assets", "spaces"
   add_foreign_key "spaces", "spaces"
   add_foreign_key "user_spaces", "spaces"
