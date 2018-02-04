@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204195404) do
+ActiveRecord::Schema.define(version: 20180204201400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20180204195404) do
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "spaces", force: :cascade do |t|
+    t.integer "code"
+    t.string "name"
+    t.string "category"
+    t.integer "capacity"
+    t.float "area"
+    t.bigint "space_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["space_id"], name: "index_spaces_on_space_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,5 +54,6 @@ ActiveRecord::Schema.define(version: 20180204195404) do
     t.index ["organization_id"], name: "index_users_on_organization_id"
   end
 
+  add_foreign_key "spaces", "spaces"
   add_foreign_key "users", "organizations"
 end
