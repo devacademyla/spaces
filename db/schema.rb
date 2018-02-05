@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204232203) do
+ActiveRecord::Schema.define(version: 20180205210026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,23 @@ ActiveRecord::Schema.define(version: 20180204232203) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "supplies", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "brand"
+    t.string "color"
+    t.string "presentation"
+    t.string "category"
+    t.string "sub_category"
+    t.integer "status"
+    t.string "stock"
+    t.integer "stock_minimun"
+    t.integer "stock_reposition"
+    t.string "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_spaces", force: :cascade do |t|
     t.date "start_date"
     t.date "finish_date"
@@ -118,6 +135,15 @@ ActiveRecord::Schema.define(version: 20180204232203) do
     t.index ["organization_id"], name: "index_users_on_organization_id"
   end
 
+  create_table "warehouses", force: :cascade do |t|
+    t.bigint "space_id"
+    t.bigint "supply_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["space_id"], name: "index_warehouses_on_space_id"
+    t.index ["supply_id"], name: "index_warehouses_on_supply_id"
+  end
+
   add_foreign_key "asset_suppliers", "assets"
   add_foreign_key "asset_suppliers", "suppliers"
   add_foreign_key "assets", "spaces"
@@ -127,4 +153,6 @@ ActiveRecord::Schema.define(version: 20180204232203) do
   add_foreign_key "user_spaces", "spaces"
   add_foreign_key "user_spaces", "users"
   add_foreign_key "users", "organizations"
+  add_foreign_key "warehouses", "spaces"
+  add_foreign_key "warehouses", "supplies"
 end
