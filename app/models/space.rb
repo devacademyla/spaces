@@ -7,4 +7,5 @@ class Space < ApplicationRecord
   has_many :children, inverse_of: :parent, foreign_key: :space_id, class_name: 'Space'
   has_many :user_spaces
   has_many :assets
+  has_one :warehouse
 end
