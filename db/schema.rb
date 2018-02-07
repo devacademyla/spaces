@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20180205210026) do
     t.string "category"
     t.string "sub_category"
     t.integer "status"
-    t.string "stock"
+    t.integer "stock"
     t.integer "stock_minimun"
     t.integer "stock_reposition"
     t.string "note"
