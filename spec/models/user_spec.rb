@@ -5,6 +5,7 @@ RSpec.describe User, type: :model do
     organization = build(:organization)
     user = build(:user, organization: organization)
     expect(user).to be_valid
+    expect(user.name).to eq("#{user.first_name} #{user.last_name}")
   end
 
   it { should validate_presence_of(:first_name) }
