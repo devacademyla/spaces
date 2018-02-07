@@ -4,7 +4,6 @@ FactoryBot.define do
     description FFaker::Book.description
     brand FFaker::Product.brand
     color FFaker::Vehicle.base_color
-    presentation FFaker::Movie.rating
     category FFaker::IdentificationESCO.driver_license_category
     sub_category FFaker::IdentificationESCO.driver_license_category
     status FFaker::PhoneNumberAU.mobile_phone_prefix

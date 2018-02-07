@@ -7,7 +7,6 @@ RSpec.describe Supply, type: :model do
   end
 
   it { should validate_presence_of(:name) }
-  it { should validate_presence_of(:presentation) }
   it { should validate_presence_of(:stock) }
   it { should validate_presence_of(:stock_minimun) }
   it { should validate_presence_of(:stock_reposition) }
