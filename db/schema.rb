@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205210026) do
+ActiveRecord::Schema.define(version: 20180207194023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20180205210026) do
     t.index ["space_id"], name: "index_assets_on_space_id"
   end
 
+  create_table "input_details", force: :cascade do |t|
+    t.date "input_date"
+    t.integer "quantity"
+    t.bigint "warehouse_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["warehouse_id"], name: "index_input_details_on_warehouse_id"
+  end
+
   create_table "maintenances", force: :cascade do |t|
     t.date "registration_date"
     t.boolean "status"
@@ -54,10 +63,19 @@ ActiveRecord::Schema.define(version: 20180205210026) do
   create_table "organizations", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "organization_identifier"
+    t.string "organization_identifier"
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "output_details", force: :cascade do |t|
+    t.date "output_date"
+    t.integer "quantity"
+    t.bigint "warehouse_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["warehouse_id"], name: "index_output_details_on_warehouse_id"
   end
 
   create_table "spaces", force: :cascade do |t|
@@ -75,16 +93,16 @@ ActiveRecord::Schema.define(version: 20180205210026) do
   create_table "suppliers", force: :cascade do |t|
     t.string "name"
     t.integer "phone"
-    t.integer "supplier_identity"
+    t.string "supplier_identity"
     t.integer "ranking"
     t.string "services"
     t.string "category"
     t.string "address"
     t.string "bank"
-    t.integer "current_account"
+    t.string "current_account"
     t.string "email"
-    t.integer "cci"
-    t.integer "deductions_account"
+    t.string "cci"
+    t.string "deductions_account"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -147,8 +165,10 @@ ActiveRecord::Schema.define(version: 20180205210026) do
   add_foreign_key "asset_suppliers", "assets"
   add_foreign_key "asset_suppliers", "suppliers"
   add_foreign_key "assets", "spaces"
+  add_foreign_key "input_details", "warehouses"
   add_foreign_key "maintenances", "assets"
   add_foreign_key "maintenances", "suppliers"
+  add_foreign_key "output_details", "warehouses"
   add_foreign_key "spaces", "spaces"
   add_foreign_key "user_spaces", "spaces"
   add_foreign_key "user_spaces", "users"
