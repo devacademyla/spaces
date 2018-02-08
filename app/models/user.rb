@@ -7,4 +7,8 @@ class User < ApplicationRecord
   validates :user_identifier, presence: true, uniqueness: true
   belongs_to :organization
   has_many :user_spaces
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end
