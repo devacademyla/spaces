@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :role, presence: true
   validates :user_identifier, presence: true, uniqueness: true
   belongs_to :organization
-  has_many :user_spaces
+  has_many :contracts
 
   def name
     "#{first_name} #{last_name}"
