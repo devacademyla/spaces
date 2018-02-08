@@ -14,8 +14,8 @@ Organization.delete_all
 
 org1 = Organization.create(name: 'CODE SAC', organization_identifier: '1238436534658', description: 'Software development', website: 'https://www.code.la/')
 # User
-users1 = User.create(first_name: 'Juan', last_name: 'Carlin', email: 'juan@code.la', mobile_phone: 195837452, emergency_phone: 978574646, emergency_contact: '', birthday: '14-02-1999', role: 'user', user_identifier: 78907890, address: 'Santa Anita Ga', bio: '', organization: org1)
-users2 = User.create(first_name: 'Grecia', last_name: 'Villagran', email: 'grecia@code.la', mobile_phone: 989223345, emergency_phone: 986757467, emergency_contact: 'Carmen De la Cruz', birthday: '16-12-2000', role: 'user', user_identifier:78956890, address: 'Urbanización San', bio: '', organization: org1)
+users1 = User.create(first_name: 'Juan', last_name: 'Carlin', email: 'juan@code.la', mobile_phone: 195837452, emergency_phone: 978574646, emergency_contact: '', birthday: '14-02-1999', role: 'user', user_identifier: 78907890, address: 'Santa Anita Ga', bio: '', organization: org1, password:'123456')
+users2 = User.create(first_name: 'Grecia', last_name: 'Villagran', email: 'grecia@code.la', mobile_phone: 989223345, emergency_phone: 986757467, emergency_contact: 'Carmen De la Cruz', birthday: '16-12-2000', role: 'user', user_identifier:78956890, address: 'Urbanización San', bio: '', organization: org1, password:'123456')
 # Space
 space1 = Space.create(code: 10020302, name: 'Lugar 14', category: 'Espacio de trabajo', capacity: 2, parent: nil, area: nil)
 space2 = Space.create(code: 10020303, name: 'Lugar 15', category: 'Espacio de trabajo', capacity: 1, parent: space1, area: nil)
