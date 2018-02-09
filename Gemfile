@@ -10,8 +10,8 @@ gem 'rails_admin', '~> 1.2'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mri mingw x64_mingw jruby]
-gem 'uglifier', '>= 1.3.0'
 gem 'devise', '~> 4.4', '>= 4.4.1'
+gem 'uglifier', '>= 1.3.0'
 gem 'hamlit', '~> 2.8', '>= 2.8.6'
 
 group :development, :test do

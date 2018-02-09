@@ -6,8 +6,7 @@ RSpec.describe Space, type: :model do
     expect(space).to be_valid
   end
 
-  it { should validate_presence_of(:code) }
+  it { should validate_presence_of(:space_identifier) }
   it { should validate_presence_of(:name) }
-  it { should validate_uniqueness_of(:code) }
-  it { should validate_presence_of(:capacity) }
+  it { should validate_uniqueness_of(:space_identifier) }
 end
