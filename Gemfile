@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 ruby '2.4.0'
 
 gem 'coffee-rails', '~> 4.2'
+gem 'devise', '~> 4.4', '>= 4.4.1'
+gem 'hamlit', '~> 2.8', '>= 2.8.6'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.21'
 gem 'puma', '~> 3.7'
