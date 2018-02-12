@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe Contract, type: :model do
   it 'is valid with a start date and finish date' do
     user = build(:user)
-    space = build(:space)
-    contract = build(:contract, user: user, space: space)
+    contract = build(:contract, user: user)
     expect(contract).to be_valid
   end
 
