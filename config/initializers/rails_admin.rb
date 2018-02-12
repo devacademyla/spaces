@@ -38,4 +38,88 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+  config.model 'User' do
+    list do
+      configure :id do
+        hide
+      end
+    end
+  end
+  config.model 'ContractSpace' do
+    list do
+      configure :id do
+        hide
+      end
+    end
+  end
+   config.model 'Payment' do
+    list do
+      configure :id do
+        hide
+      end
+    end
+  end
+  config.model 'Organization' do
+    list do
+      configure :id do
+        hide
+      end
+    end
+  end
+  config.model 'Space' do
+    list do
+      configure :id do
+        hide
+      end
+    end
+  end
+  config.model 'Contract' do
+    list do
+      configure :id do
+        hide
+      end
+    end
+  end
+  config.model 'Asset' do
+    list do
+      configure :id do
+        hide
+      end
+    end
+  end
+  config.model 'Supplier' do
+    list do
+      configure :id do
+        hide
+      end
+    end
+  end
+  config.model 'Maintenance' do
+    list do
+      configure :id do
+        hide
+      end
+    end
+  end
+  config.model 'AssetSupplier' do
+    list do
+      configure :id do
+        hide
+      end
+    end
+  end
+  config.model 'Supply' do
+    list do
+      configure :id do
+        hide
+      end
+    end
+  end
+  config.model 'Warehouse' do
+    list do
+      configure :id do
+        hide
+      end
+    end
+  end
 end
