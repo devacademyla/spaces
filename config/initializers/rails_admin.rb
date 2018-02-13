@@ -38,88 +38,29 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
-  config.model 'User' do
-    list do
-      configure :id do
-        hide
-      end
-    end
-  end
-  config.model 'ContractSpace' do
-    list do
-      configure :id do
-        hide
-      end
-    end
-  end
-   config.model 'Payment' do
-    list do
-      configure :id do
-        hide
-      end
-    end
-  end
-  config.model 'Organization' do
-    list do
-      configure :id do
-        hide
-      end
-    end
-  end
-  config.model 'Space' do
-    list do
-      configure :id do
-        hide
-      end
-    end
-  end
-  config.model 'Contract' do
-    list do
-      configure :id do
-        hide
-      end
-    end
-  end
-  config.model 'Asset' do
-    list do
-      configure :id do
-        hide
-      end
-    end
-  end
-  config.model 'Supplier' do
-    list do
-      configure :id do
-        hide
-      end
-    end
-  end
-  config.model 'Maintenance' do
-    list do
-      configure :id do
-        hide
-      end
-    end
-  end
-  config.model 'AssetSupplier' do
-    list do
-      configure :id do
-        hide
-      end
-    end
-  end
-  config.model 'Supply' do
-    list do
-      configure :id do
-        hide
-      end
-    end
-  end
-  config.model 'Warehouse' do
-    list do
-      configure :id do
-        hide
-      end
-    end
-  end
+
+  config.model (User) { list { configure :id { hide } } }
+
+  config.model (ContractSpace) { list { configure :id { hide } } }
+
+  config.model (Payment) { list { configure :id { hide } } }
+
+  config.model (Organization) { list { configure :id { hide } } }
+
+  config.model (Space) { list { configure :id { hide } } }
+
+  config.model (Contract) { list { configure :id { hide } } }
+
+  config.model (Asset) { list { configure :id { hide } } }
+
+  config.model (Supplier) { list { configure :id { hide } } }
+
+  config.model (Maintenance) { list { configure :id { hide } } }
+
+  config.model (AssetSupplier) { list { configure :id { hide } } }
+
+  config.model (Supply) { list { configure :id { hide } } }
+
+  config.model (Warehouse) { list { configure :id { hide } } }
+
 end
