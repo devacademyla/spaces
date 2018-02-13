@@ -5,6 +5,7 @@ RSpec.describe Contract, type: :model do
     user = build(:user)
     contract = build(:contract, user: user)
     expect(contract).to be_valid
+    expect(contract.name).to eq("#{contract.start_date} | #{contract.finish_date}")
   end
 
   it { should validate_presence_of(:start_date) }
