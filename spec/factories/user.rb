@@ -8,5 +8,6 @@ FactoryBot.define do
     role 'admin'
     user_identifier FFaker::Identification.ssn
     address FFaker::Address.street_address
+    password FFaker::Internet.password
   end
 end
