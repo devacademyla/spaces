@@ -19,6 +19,6 @@ users2 = User.create(first_name: 'Grecia', last_name: 'Villagran', email: 'greci
 # Space
 space1 = Space.create(space_identifier: '01020302', name: 'Lugar 14', category: 'Espacio de trabajo', capacity: 2, parent: nil, area: nil)
 space2 = Space.create(space_identifier: '01020303', name: 'Lugar 15', category: 'Espacio de trabajo', capacity: 1, parent: space1, area: nil)
-# UserSpace
+# Contract
 contract1 = Contract.create(start_date: '03-01-2018', finish_date: '01-12-2020', space: space1, user: users1)
 contract2 = Contract.create(start_date: '03-01-2018', finish_date: '01-12-2020', space: space2, user: users2)
