@@ -18,6 +18,10 @@
     %br/
     = f.text_field :user_identifier, autofocus: true, autocomplete: "user_identifier"
   .field
+    = f.label :user_identifier
+    %br/
+    = f.collection_select :organization_id, Organization.all, :id, :name, {autofocus: true, autocomplete: "organization"}
+  .field
     = f.label :email
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email"

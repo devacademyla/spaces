@@ -7,6 +7,7 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 require 'support/factory_bot'
 require 'support/request_spec_helper'
+require 'support/controller_macros'
 require 'shoulda-matchers'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -58,6 +59,8 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include RequestSpecHelper, type: :request
+  config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
 end
 
 Shoulda::Matchers.configure do |config|
