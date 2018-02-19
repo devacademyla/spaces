@@ -27,5 +27,9 @@ module Spaces
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.log_level = :info
+    config.log_formatter = proc do |severity, time, progname, msg|
+      "#{time.strftime('%F %T %Z')} #{severity} #{msg}\n"
+    end
   end
 end
