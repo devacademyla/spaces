@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180212161659) do
+ActiveRecord::Schema.define(version: 20180215181142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,10 +79,9 @@ ActiveRecord::Schema.define(version: 20180212161659) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.integer "payment"
     t.date "payment_date"
-    t.date "warning_date"
-    t.integer "quantity"
+    t.date "due_date"
+    t.float "amount"
     t.string "status"
     t.text "note"
     t.bigint "contract_id"
@@ -165,11 +164,7 @@ ActiveRecord::Schema.define(version: 20180212161659) do
     t.index ["supply_id"], name: "index_warehouses_on_supply_id"
   end
 
-  add_foreign_key "asset_suppliers", "assets"
-  add_foreign_key "asset_suppliers", "suppliers"
   add_foreign_key "assets", "spaces"
-  add_foreign_key "contract_spaces", "contracts"
-  add_foreign_key "contract_spaces", "spaces"
   add_foreign_key "contracts", "users"
   add_foreign_key "maintenances", "assets"
   add_foreign_key "maintenances", "suppliers"
