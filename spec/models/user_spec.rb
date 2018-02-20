@@ -1,12 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it 'is valid with a first name, last name, email, role and user_identifier' do
-    organization = build(:organization)
-    user = build(:user, organization: organization)
+  it {
+    user = build(:user, organization: build(:organization))
     expect(user).to be_valid
     expect(user.name).to eq("#{user.first_name} #{user.last_name}")
-  end
+  }
 
   it { should validate_presence_of(:first_name) }
   it { should validate_presence_of(:last_name) }

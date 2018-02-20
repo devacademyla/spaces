@@ -1,12 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Asset, type: :model do
-  it 'is valid with a name ,category , sub_category and status' do
-    space = build(:space)
-    asset = build(:asset, space: space)
-    expect(asset).to be_valid
-  end
-
+  it { expect(build(:asset, space: build(:space))).to be_valid }
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:category) }
   it { should validate_presence_of(:sub_category) }
