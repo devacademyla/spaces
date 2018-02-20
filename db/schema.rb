@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180208203810) do
+ActiveRecord::Schema.define(version: 20180215181142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20180208203810) do
     t.string "category"
     t.string "sub_category"
     t.integer "status"
-    t.string "description"
+    t.text "description"
     t.integer "interval"
     t.bigint "space_id"
     t.datetime "created_at", null: false
@@ -40,14 +40,21 @@ ActiveRecord::Schema.define(version: 20180208203810) do
     t.index ["space_id"], name: "index_assets_on_space_id"
   end
 
+  create_table "contract_spaces", force: :cascade do |t|
+    t.bigint "contract_id"
+    t.bigint "space_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contract_id"], name: "index_contract_spaces_on_contract_id"
+    t.index ["space_id"], name: "index_contract_spaces_on_space_id"
+  end
+
   create_table "contracts", force: :cascade do |t|
     t.date "start_date"
     t.date "finish_date"
-    t.bigint "space_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["space_id"], name: "index_contracts_on_space_id"
     t.index ["user_id"], name: "index_contracts_on_user_id"
   end
 
@@ -64,11 +71,23 @@ ActiveRecord::Schema.define(version: 20180208203810) do
 
   create_table "organizations", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.text "description"
     t.string "organization_identifier"
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.date "payment_date"
+    t.date "due_date"
+    t.float "amount"
+    t.string "status"
+    t.text "note"
+    t.bigint "contract_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contract_id"], name: "index_payments_on_contract_id"
   end
 
   create_table "spaces", force: :cascade do |t|
@@ -80,6 +99,7 @@ ActiveRecord::Schema.define(version: 20180208203810) do
     t.bigint "space_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "full_name"
     t.index ["space_id"], name: "index_spaces_on_space_id"
   end
 
@@ -90,7 +110,7 @@ ActiveRecord::Schema.define(version: 20180208203810) do
     t.integer "ranking"
     t.string "services"
     t.string "category"
-    t.string "address"
+    t.text "address"
     t.string "bank"
     t.string "current_account"
     t.string "email"
@@ -102,7 +122,7 @@ ActiveRecord::Schema.define(version: 20180208203810) do
 
   create_table "supplies", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.text "description"
     t.string "brand"
     t.string "color"
     t.string "presentation"
@@ -112,7 +132,7 @@ ActiveRecord::Schema.define(version: 20180208203810) do
     t.integer "stock"
     t.integer "stock_minimun"
     t.integer "stock_reposition"
-    t.string "note"
+    t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -127,7 +147,7 @@ ActiveRecord::Schema.define(version: 20180208203810) do
     t.date "birthday"
     t.string "role"
     t.integer "user_identifier"
-    t.string "address"
+    t.text "address"
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -144,13 +164,11 @@ ActiveRecord::Schema.define(version: 20180208203810) do
     t.index ["supply_id"], name: "index_warehouses_on_supply_id"
   end
 
-  add_foreign_key "asset_suppliers", "assets"
-  add_foreign_key "asset_suppliers", "suppliers"
   add_foreign_key "assets", "spaces"
-  add_foreign_key "contracts", "spaces"
   add_foreign_key "contracts", "users"
   add_foreign_key "maintenances", "assets"
   add_foreign_key "maintenances", "suppliers"
+  add_foreign_key "payments", "contracts"
   add_foreign_key "spaces", "spaces"
   add_foreign_key "users", "organizations"
   add_foreign_key "warehouses", "spaces"

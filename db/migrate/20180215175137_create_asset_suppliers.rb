@@ -1,9 +1,9 @@
 class CreateAssetSuppliers < ActiveRecord::Migration[5.1]
   def change
     create_table :asset_suppliers do |t|
-      t.references :asset, foreign_key: true
-      t.references :supplier, foreign_key: true
-
+    	t.belongs_to :asset, index: true
+      t.belongs_to :supplier, index: true
+ 
       t.timestamps
     end
   end

@@ -6,5 +6,6 @@ class Asset < ApplicationRecord
   validates :status, presence: true
   belongs_to :space
   has_many :asset_suppliers
+  has_many :suppliers, through: :asset_suppliers
   has_many :maintenances
 end
