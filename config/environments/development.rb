@@ -54,14 +54,14 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name:      ENV['SENDMAIL_USERNAME'],
     password:       ENV['SENDMAIL_PASSWORD'],
-    domain:         ENV['MAIL_HOST'],
+    domain:         ENV['DOMAIN'],
     address:       'smtp.gmail.com',
     port:          '587',
     authentication: :plain,
     enable_starttls_auto: true
   }
 
-  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+  Rails.application.routes.default_url_options[:host] = ENV['MAIL_HOST']
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
