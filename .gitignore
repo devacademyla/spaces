@@ -18,6 +18,7 @@
 /coverage
 
 .byebug_history
+.env
 
 docker-compose.yml
 Dockerfile
