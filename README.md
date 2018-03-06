@@ -30,3 +30,11 @@ Also you can use guard to watch files.
 ```
 bundle exec guard
 ```
+
+### Environment variables
+You should create a .env file in the root.
+Variables we are using as far are:
+- MAIL_HOST
+- SENDMAIL_USERNAME
+- SENDMAIL_PASSWORD
+- DOMAIN
