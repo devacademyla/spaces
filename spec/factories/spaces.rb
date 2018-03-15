@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :space do
-    code FFaker::IdentificationESCL.rut
+    space_identifier FFaker::IdentificationESCL.rut
     name FFaker::NatoAlphabet.code
     category FFaker::IdentificationESCO.driver_license_category
     capacity FFaker::Vehicle.engine_cylinders
