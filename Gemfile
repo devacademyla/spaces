@@ -8,7 +8,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.21'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
-gem 'rails_admin', '~> 1.2'
+gem 'rails_admin', '~> 1.3'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mri mingw x64_mingw jruby]
