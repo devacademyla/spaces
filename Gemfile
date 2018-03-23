@@ -1,18 +1,22 @@
 source 'https://rubygems.org'
 ruby '2.4.0'
 
-gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.4', '>= 4.4.1'
-gem 'hamlit', '~> 2.8', '>= 2.8.6'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.21'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 gem 'rails_admin', '~> 1.3'
-gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mri mingw x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
+
+# frontend
+gem 'coffee-rails', '~> 4.2'
+gem 'hamlit', '~> 2.8', '>= 2.8.6'
+gem 'material_icons'
+gem 'materialize-sass', '~> 1.0.0.alpha4'
+gem 'sass-rails', '~> 5.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

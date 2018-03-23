@@ -40,6 +40,8 @@ GEM
       tzinfo (~> 1.1)
     arel (8.0.0)
     ast (2.4.0)
+    autoprefixer-rails (8.2.0)
+      execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
@@ -142,6 +144,11 @@ GEM
     lumberjack (1.0.12)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
+    material_icons (2.2.1)
+      railties (>= 3.2)
+    materialize-sass (1.0.0.alpha4)
+      autoprefixer-rails (>= 6.0.3)
+      sass (>= 3.5.2)
     method_source (0.9.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
@@ -321,6 +328,8 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   libnotify
   listen (>= 3.0.5, < 3.2)
+  material_icons
+  materialize-sass (~> 1.0.0.alpha4)
   pg (~> 0.21)
   puma (~> 3.7)
   rails (~> 5.1.4)
