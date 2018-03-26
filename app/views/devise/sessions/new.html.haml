@@ -1,17 +1,29 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.valign-wrapper{:style => "width:100%;height:100%;position: absolute;"}
+  .valign{:style => "width:100%;"}
+    .container
+      .row
+        .col.s12.m6.offset-m3
+          .card
+            .card-content
+              %span.card-title.black-text Log in
+              = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+                .row
+                  .input-field.col.s12
+                    = f.email_field :email, autofocus: true, autocomplete: "email"
+                    = f.label :email
+                .row
+                  .input-field.col.s12
+                    = f.password_field :password, autocomplete: "off"
+                    = f.label :password
+                - if devise_mapping.rememberable?
+                  .row
+                    .col.s12
+                      %label{ for: 'user_remember_me' }
+                        = f.check_box :remember_me
+                        %span Remember me
+                .row
+                  .col.s12
+                    %button.btn.waves-effect.col.s12 Log in
+                .row
+                  .col.s12
+                    = render "devise/shared/links"
