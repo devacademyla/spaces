@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Contract
 class Contract < ApplicationRecord
   validates :start_date, presence: true

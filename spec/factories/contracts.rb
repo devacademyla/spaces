@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :contract do
     start_date FFaker::IdentificationESCO.expedition_date

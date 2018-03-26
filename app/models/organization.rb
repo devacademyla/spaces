@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Organization
 class Organization < ApplicationRecord
   validates :name, presence: true

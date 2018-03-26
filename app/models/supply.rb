@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Supply
 class Supply < ApplicationRecord
   validates :name, presence: true
