@@ -10,6 +10,7 @@ gem 'rails_admin', '~> 1.3'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mri mingw x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
+gem 'cancancan', '~> 2.0'
 
 # frontend
 gem 'coffee-rails', '~> 4.2'
