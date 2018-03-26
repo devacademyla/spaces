@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Space
 class Space < ApplicationRecord
   validates :space_identifier, presence: true, uniqueness: true

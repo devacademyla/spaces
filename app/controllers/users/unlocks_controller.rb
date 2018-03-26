@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Users
   # frozen_string_literal: true
   class UnlocksController < Devise::UnlocksController

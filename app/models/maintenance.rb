@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Maintenace
 class Maintenance < ApplicationRecord
   validates :registration_date, presence: true
