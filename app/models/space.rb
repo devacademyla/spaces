@@ -9,4 +9,15 @@ class Space < ApplicationRecord
   has_many :contracts
   has_many :assets
   has_one :warehouse
-end
+
+  before_save :generate_full_name
+
+  protected
+
+  def generate_full_name
+    self.full_name = (objects = [self]
+    objects.push(objects.last.parent) while objects.last.parent
+    objects).map(&:name).join(' | ')
+  end
+ end
+
