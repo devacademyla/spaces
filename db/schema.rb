@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20180212221727) do
     t.bigint "space_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "full_name"
     t.index ["space_id"], name: "index_spaces_on_space_id"
   end
 
