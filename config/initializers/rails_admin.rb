@@ -46,6 +46,8 @@ RailsAdmin.config do |config|
   config.model (Contract) { list { configure :id { hide } } }
   config.model (Maintenance) { list { configure :id { hide } } }
   config.model (Space) { list { configure :id { hide } } }
+  config.model (Space) { list { configure :full_name { show } } }
+  config.model (Space) { list { fields :space_identifier, :name, :full_name, :category, :capacity, :area } }
   config.model (Supplier) { list { configure :id { hide } } }
   config.model (Supply) { list { configure :id { hide } } }
   config.model (Warehouse) { list { configure :id { hide } } }
