@@ -9,4 +9,19 @@ class Space < ApplicationRecord
   has_many :contracts
   has_many :assets
   has_one :warehouse
+
+  def ancestors
+    ancestors = []
+    ancestor = parent
+    while ancestor
+      ancestors << ancestor
+      ancestor = ancestor.parent
+    end
+    ancestors
+  end
+
+  def full_name
+    ancestors_name = ancestors.collect(&:name).join(' | ')
+    ancestors_name.blank? ? name : "#{ancestors_name} | #{name}"
+  end
 end
