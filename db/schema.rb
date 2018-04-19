@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180212221727) do
+ActiveRecord::Schema.define(version: 20180419200713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,19 +71,7 @@ ActiveRecord::Schema.define(version: 20180212221727) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "spaces", force: :cascade do |t|
-    t.string "space_identifier"
-    t.string "name"
-    t.string "category"
-    t.integer "capacity"
-    t.float "area"
-    t.bigint "space_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["space_id"], name: "index_spaces_on_space_id"
-  end
-
-  create_table "suppliers", force: :cascade do |t|
+  create_table "providers", force: :cascade do |t|
     t.string "name"
     t.integer "phone"
     t.string "supplier_identity"
@@ -98,6 +86,18 @@ ActiveRecord::Schema.define(version: 20180212221727) do
     t.string "deductions_account"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "spaces", force: :cascade do |t|
+    t.string "space_identifier"
+    t.string "name"
+    t.string "category"
+    t.integer "capacity"
+    t.float "area"
+    t.bigint "space_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["space_id"], name: "index_spaces_on_space_id"
   end
 
   create_table "supplies", force: :cascade do |t|
@@ -165,12 +165,12 @@ ActiveRecord::Schema.define(version: 20180212221727) do
   end
 
   add_foreign_key "asset_suppliers", "assets"
-  add_foreign_key "asset_suppliers", "suppliers"
+  add_foreign_key "asset_suppliers", "providers", column: "supplier_id"
   add_foreign_key "assets", "spaces"
   add_foreign_key "contracts", "spaces"
   add_foreign_key "contracts", "users"
   add_foreign_key "maintenances", "assets"
-  add_foreign_key "maintenances", "suppliers"
+  add_foreign_key "maintenances", "providers", column: "supplier_id"
   add_foreign_key "spaces", "spaces"
   add_foreign_key "users", "organizations"
   add_foreign_key "warehouses", "spaces"
