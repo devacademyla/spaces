@@ -12,4 +12,10 @@ RSpec.describe Supplier, type: :model do
   it { should validate_uniqueness_of(:supplier_identity) }
   it { should validate_presence_of(:category) }
   it { should validate_presence_of(:phone) }
+
+  context 'when supplier_identity is blank' do
+    let!(:supplier_1) { create(:supplier, supplier_identity: nil) }
+    let(:supplier_2) { build(:supplier, supplier_identity: nil) }
+    it { expect(supplier_2).to be_valid }
+  end
 end
