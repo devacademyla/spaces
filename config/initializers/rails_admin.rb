@@ -10,7 +10,7 @@ RailsAdmin.config do |config|
 
   ## == Cancan ==
   config.authorize_with :cancan
-  config.authorize_with :cancancan2
+  #config.authorize_with :cancancan2
   ## == Pundit ==
   # config.authorize_with :pundit
 
